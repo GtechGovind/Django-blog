@@ -35,7 +35,7 @@ if DEBUG == False:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
-ALLOWED_HOSTS = ['socialtriggers.pythonanywhere.com', 'ec2-3-15-213-45.us-east-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['3.15.213.45', 'ec2-3-15-213-45.us-east-2.compute.amazonaws.com']
 
 
 # Application definition

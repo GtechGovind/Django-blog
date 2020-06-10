@@ -1,0 +1,73 @@
+
+<aside class="col-lg-4">
+    <!-- Widget [Search Bar Widget]-->
+    <div class="widget search">
+      <header>
+        <h3 class="h6">Search the blog</h3>
+      </header>
+      <form action="{% url 'search' %}" class="search-form">
+        <div class="form-group">
+          <input type="search" name="search" id="search" placeholder="What are you looking for?">
+          <button type="submit" class="submit"><i class="icon-search"></i></button>
+        </div>
+      </form>
+    </div>
+    <!-- Widget [featured Posts Widget]        -->
+    <div class="widget latest-posts">
+      <header>
+        <h3 class="h6">Featured Posts</h3>
+      </header>
+      
+      <div class="blog-posts">
+        {% for post in FEATURED_POSTS %}
+          <a href="{% url 'post' post.post_id %}">
+            <div class="item d-flex align-items-center">
+              <div class="image"><img src="{{ post.thumbnail.url }}" class="img-fluid"></div>
+              <div class="title">{{ post.title }}</strong>
+                <div class="d-flex align-items-center">
+                  <div class="views"><i class="icon-eye"></i> {{ post.view_count }}</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Widget [Meme Posts Widget]        -->
+    <div class="widget latest-posts">
+      <header>
+        <h3 class="h6">Latest Memes</h3>
+      </header>
+      
+      <div class="blog-posts">
+        {% for post in ASIDE_LATEST_MEMES %}
+          <a href="{% url 'meme' post.meme_id %}">
+            <div class="item d-flex align-items-center">
+              <div class="image"><img src="{{ post.meme.url }}" class="img-fluid"></div>
+              <div class="category">{{ post.category.name }}</strong>
+                <div class="d-flex align-items-center">
+                  <div class="views"><i class="icon-eye"></i> {{ post.view_count }}</div>
+                </div>
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Widget [Tags Cloud Widget]-->
+    <div class="widget tags">       
+      <header>
+        <h3 class="h6">Category Tags</h3>
+      </header>
+      <ul class="list-inline">
+        {% for cat in CATEGORIES %}
+            <form action="{% url 'search' %}" style="display: inline-flex">
+              <input type="search" name="search" id="search" value="{{cat}}" style="display: none;">
+              <li class="list-inline-item"><button type="sumbit" class="tag">#{{cat}}</button></li>
+            </form>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>

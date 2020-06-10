@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+    <header class="masthead text-center text-white">
+        <div class="masthead-content">
+            <div class="container">
+                <h1 class="heading_main">SOCIALTRIGGERS</h1>
+            </div>
+        </div>
+    </header>
+
+    <hr style="margin-top: 30px;">
+      <div class = "text-center"><h3 class="masthead-subheading mb-0">FEATURED ARTICALS</h3></div>
+    <hr style="margin-bottom: 30px;">
+
+    <section class="featured-posts no-padding-top">
+      <div class="container">
+        <!---- Post ---->
+        {% for post in FEATURED_POSTS %}
+          <div class="row d-flex align-items-stretch">
+            {% if not forloop.first and not forloop.last %}
+            <div class="image col-lg-5">
+              <img src="{{post.thumbnail.url}}">
+            </div>
+          {% endif %}
+            <div class="text col-lg-7">
+              <div class="text-inner d-flex align-items-center">
+                <div class="content">
+                  <header class="post-header">
+                    <div class="category">
+                      {% for cat in post.category.all %}
+                        <a href="#">{{ cat }}</a>
+                      {% endfor %}
+                    </div>
+                    <hr>
+                    <a href="{% url 'post' post.post_id %}">
+                      <h3 class="post_title h4">{{ post.title }}</h3>
+                      </a>
+                  </header>
+
+                  <p class="text-justify">{{ post.overview }}</p>
+
+                  <footer class="post-footer d-flex align-items-center">
+                    <a href="#" class="author d-flex align-items-center flex-wrap">
+                      <div class="avatar"><img src="{{ post.author.profile_picture.url }}" class="img-fluid"></div>
+                      <div class="title"><span>{{ post.author.user.username }}</span></div>
+                    </a>
+                      <div class="date"><i class="icon-clock"></i>{{ post.timestamp | timesince }} ago</div>
+                      <div class="views date"><i class="icon-eye"></i> {{ post.view_count }}</div>
+                    </footer>
+                </div>
+              </div>
+            </div>
+            {% if forloop.first or forloop.last %}
+            <div class="image col-lg-5">
+              <img class="" src="{{post.thumbnail.url}}">
+            </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <hr style="margin-top: -50px;">
+      <div class = "text-center"><h3 class="masthead-subheading mb-0">LATEST MEMES</h3></div>
+    <hr style="margin-bottom: -70px;">
+
+    <section class="latest-posts">
+      <div class="container">
+        <div class="row">
+          {% for meme in LATEST_MEMES %}
+          <!-- Latest Posts -->
+            <div class="post col-sm-12 col-md-3 text-center">
+                <div class="post-thumbnail">
+                  <a href="{% url 'meme' meme.meme_id %}">
+                    <img style="width: auto; height: 300px; border: 3px solid orangered;" src="{{ meme.meme.url }}" class="img-fluid">
+                  </a>
+                </div>
+                <div class="post-details">
+                  <div class="post-meta" style="display: inline-flex;">
+                    <div class="date">{{ meme.timestamp | timesince }}</div>
+                    <div class="category text-muted">{{ meme.category.name }}</div>
+                  </div>
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <hr style="margin-top: -50px;">
+      <div class = "text-center"><h3 class="masthead-subheading mb-0">LATEST ARTICALS</h3></div>
+    <hr style="margin-bottom: -70px;">
+
+    <section class="latest-posts">
+      <div class="container">
+        <div class="row">
+          {% for post in LATEST_POSTS %}
+          <!-- Latest Posts -->
+            <div class="post col-md-4">
+                <div class="post-thumbnail">
+                  <a href="{% url 'post' post.post_id %}">
+                    <img src="{{ post.thumbnail.url }}" class="img-fluid">
+                  </a>
+                </div>
+                <div class="post-details">
+                  <div class="post-meta d-flex justify-content-between">
+                    <div class="date">{{ post.timestamp }}</div>
+                    <div class="category">
+                      {% for cat in post.category.all %}
+                        <a href="#">{{ cat }}</a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                  <a href="{% url 'post' post.post_id %}">
+                    <h3 class="h4 text-center">{{ post.title }}</h3>
+                  </a>
+                  <p class="text-muted text-justify">{{ post.overview }} <a href="{% url 'post' post.post_id %}" style="color: blue; padding: 0; margin: 0;"> read more..</a></p>
+
+                </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <hr style="margin-top: -90px; margin-bottom: -50px;">
+
+{% endblock %}

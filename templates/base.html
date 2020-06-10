@@ -1,0 +1,115 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+
+    <!--------------------------------------MASTER CSS-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'mastercss.css' %}">
+
+    <!----------------------------------------LANDING PAGE-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'landing_page/assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i">
+
+    <!--------------------------------------LANDING PAGE POST-------------------------------------------------------------->
+    <link rel="stylesheet" href="{% static 'blog/vendor/font-awesome/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/fontastic.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+    <link rel="stylesheet" href="{% static 'blog/vendor/@fancyapps/fancybox/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/style.default.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/custom.css' %}">
+    <link rel="shortcut icon" href="{% static 'blog/favicon.png' %}">
+
+    <style>
+        .heading_main{
+            font-size: 100px;
+        }
+
+        @media(max-width: 700px){
+
+            .masthead{
+                height: 30px;
+            }
+            .heading_main{
+            font-size: 225%;
+            margin-top: -30px;
+            }
+            .post_title{
+                font-size: 20px;
+            }
+        }
+
+    </style>
+
+<body>
+
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_IN/sdk.js#xfbml=1&version=v7.0" nonce="YFj1Cb1d"></script>
+
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">SosicalTriggers</a>
+            <button data-toggle="collapse" class="navbar-toggler" data-target="#navbarResponsive"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="{% url 'blog' %}">Blog</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">2min news</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block body %}
+
+    {% endblock %}
+
+    <!-- Newsletter Section-->
+    <section class="newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="text-center">
+            <h3>SUBSCRIBE TO NEWSLETTER</h3>
+            <p class="text-big text-center">Welcome in the new age of Newsletters. We will send you <strong>WhatsApp Notification</strong> Whenever new Artical is posted. Please Subscribe for latest news.</p>
+          </div>
+          <div class="test-center col-sm-12 number">
+            <div class="form-holder">
+              <form action="#">
+                <div class="form-group">
+                  <input type="text" name="number" id="number" placeholder="Type your WhatsApp number ">
+                  <button type="submit" class="submit">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <footer class="py-5 bg-black">
+        <div class="container">
+            <p class="text-center text-white m-0 small">Copyright&nbsp;© SosicalTriggers 2020</p>
+        </div>
+    </footer>
+    <!----------------------------------------LANDING PAGE-------------------------------------------------------------->
+    <script src="{% static 'landing_page/assets/js/jquery.min.js' %}"></script>
+    <script src="{% static 'landing_page/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <!----------------------------------------LANDING PAGE POSTS-------------------------------------------------------------->
+    <script src="{% static 'blog/vendor/popper.js/umd/popper.min.js' %}"> </script>
+    <script src="{% static 'blog/vendor/jquery.cookie/jquery.cookie.js' %}"> </script>
+    <script src="{% static 'blog/vendor/@fancyapps/fancybox/jquery.fancybox.min.js' %}"></script>
+    <script src="{% static 'blog/js/front.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.img{
+    height: 225px;
+}
+@media(max-width: 700px){
+    .heading_main{
+        font-size: 50px;
+    }
+    .cat_latest{
+        margin-top: -50px;
+    }
+    .cat_container{
+        margin-top: -40px;
+    }
+    
+    .h4{
+        text-align: center;
+    }
+    .img{
+        display: block;
+        margin: auto;
+        height: auto;
+        max-height: 100%;
+    
+        width: auto;
+        max-width: 100%;
+    }
+}

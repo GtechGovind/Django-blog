@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'd+w&fs(s%@54s8_&i^%%o=ig)x*xk#t(r)sm6iuq#w0tkbrg#v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 if DEBUG == False:
     CSRF_COOKIE_SECURE = True #to avoid transmitting the CSRF cookie over HTTP accidentally.
@@ -35,7 +35,7 @@ if DEBUG == False:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
-ALLOWED_HOSTS = ['socialtriggers.pythonanywhere.com', '127.0.0.1']
+ALLOWED_HOSTS = ['socialtriggers.pythonanywhere.com', ''ec2-3-15-213-45.us-east-2.compute.amazonaws.com:8000'']
 
 
 # Application definition

@@ -35,7 +35,7 @@ if DEBUG == False:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
-ALLOWED_HOSTS = ['ec2-3-19-255-63.us-east-2.compute.amazonaws.com', '3.19.255.63']
+ALLOWED_HOSTS = ['ec2-18-218-90-126.us-east-2.compute.amazonaws.com', '18.218.90.126']
 
 
 # Application definition
@@ -137,4 +137,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+    '/home/ubuntu/project/Django-blog/staticfiles'
 )

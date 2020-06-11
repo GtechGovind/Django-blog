@@ -35,7 +35,7 @@ if DEBUG == False:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
-ALLOWED_HOSTS = ['ec2-3-19-255-63.us-east-2.compute.amazonaws.com']
+ALLOWED_HOSTS = ['ec2-3-19-255-63.us-east-2.compute.amazonaws.com', '3.19.255.63']
 
 
 # Application definition
